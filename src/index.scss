@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import 'src/assets/mixins.scss';
+
+body {
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+  background-color: #30e5e5;
+  font-size: 20px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+.progress {
+  background: linear-gradient(90deg, #12e730, #00d4ff);
+}
+
+.scrollCustom {
+  &::-webkit-scrollbar {
+    @include -webkit-scrollbar;
+  }
+
+  &::-webkit-scrollbar-track {
+    @include -webkit-scrollbar-track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include -webkit-scrollbar-thumb;
+  }
+}
+
+

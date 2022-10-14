@@ -36,9 +36,14 @@ const WrapperQuestion = (props: WrapperPagesPropsType): ReactElement => {
   return (
     <div>
       <WrapperComponent>
-        <div className="flex-auto h-auto">
+        <div className="w-full">
           {step !== questionArray.length ? (
-            <Question step={step} question={question} onClickVariant={onClickVariant} />
+            <Question
+              lengthQuestion={lengthQuestion}
+              step={step}
+              question={question}
+              onClickVariant={onClickVariant}
+            />
           ) : (
             <Result correct={correctQuestion} lengthQuestion={lengthQuestion} />
           )}

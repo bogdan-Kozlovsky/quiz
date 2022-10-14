@@ -4,10 +4,10 @@ import QuestionList from './QuestionList';
 import Title from './Title';
 
 import Progress from 'component/common/Progress';
-import { reactQuestions } from 'db/reactQuastion';
 
 type QuestionPropsType = {
   step: number;
+  lengthQuestion: number;
   question: {
     title: string;
     variants: string[];
@@ -17,7 +17,7 @@ type QuestionPropsType = {
 };
 
 const Question = (props: QuestionPropsType): ReactElement => {
-  const { step, question, onClickVariant } = props;
+  const { step, question, onClickVariant, lengthQuestion } = props;
 
   const [time, setTime] = useState(30);
 
@@ -33,7 +33,7 @@ const Question = (props: QuestionPropsType): ReactElement => {
     };
   }, []);
 
-  const percentTarget = Math.round((step / reactQuestions.length) * 100);
+  const percentTarget = Math.round((step / lengthQuestion) * 100);
 
   return (
     <>

@@ -13,15 +13,15 @@ const QuestionList = (props: QuestionListPropsType): ReactElement => {
   const { question, onClickVariant } = props;
 
   return (
-    <ul className="max-h-[200px] overflow-auto scrollCustom">
+    <ul className="h-[200px] overflow-auto scrollCustom">
       {question.variants.map((variant, index) => (
         <li
-          className="border-b-4 border-amber-100 cursor-pointer mb-[5px] rounded-sm"
+          className="border-b-4 border-amber-100 cursor-pointer mb-[10px] rounded-sm"
           onClick={() => onClickVariant(index)}
           role="presentation"
           key={`${variant}`}
         >
-          {variant}
+          {variant[0].toUpperCase() + variant.substring(1)}
         </li>
       ))}
     </ul>

@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
+import { PATHS } from '../types/routes.enum';
+
 type ResultPropsType = {
   correct: number;
   lengthQuestion: number;
@@ -26,10 +28,10 @@ const Result = (props: ResultPropsType): ReactElement => {
       )}
 
       <h2 className="mb-[15px]">
-        Ви відгадали <span className="text-amber-600">{correct}</span> відповіді з{' '}
+        Ви знали <span className="text-amber-600">{correct}</span> відповіді з{' '}
         <span className="text-amber-600">{lengthQuestion}</span>
       </h2>
-      <NavLink className="border-b-4 border-amber-100" to="/">
+      <NavLink className="border-b-4 border-amber-100" to={PATHS.ROOT}>
         return to home
       </NavLink>
     </div>

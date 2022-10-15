@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 
+import NotificationMessage from './NotificationMessage';
 import QuestionList from './QuestionList';
 import Title from './Title';
 
@@ -19,9 +20,7 @@ type QuestionPropsType = {
 const Question = (props: QuestionPropsType): ReactElement => {
   const { step, question, onClickVariant, lengthQuestion } = props;
 
-  const [time, setTime] = useState(30);
-
-  const seconds = time - Math.floor(time / 60) * 60;
+  const [time, setTime] = useState(100);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,26 +32,38 @@ const Question = (props: QuestionPropsType): ReactElement => {
     };
   }, []);
 
+  const restartTimer = (): void => {
+    setTime(100);
+  };
+
   const percentTarget = Math.round((step / lengthQuestion) * 100);
 
   return (
-    <>
-      {seconds}
+    <div>
+      {!time ? (
+        <NotificationMessage />
+      ) : (
+        <>
+          <div className="h-[5px] rounded-[10px] bg-[#eee] mb-[25px]">
+            <div
+              style={{ width: `${time}%` }}
+              className="h-full rounded-[30px] bg-black ease-in-out"
+            />
+          </div>
+          <Progress percentTarget={percentTarget} />
 
-      <div className="h-[5px] rounded-[10px] bg-white mb-[25px]">
-        <div
-          style={{ width: `${time}%` }}
-          className="h-full rounded-[30px]  bg-black ease-in-out"
-        />
-      </div>
-      <Progress percentTarget={percentTarget} />
+          <div>
+            <Title valueTitle={question.title} />
 
-      <div>
-        <Title valueTitle={question.title} />
-
-        <QuestionList question={question} onClickVariant={onClickVariant} />
-      </div>
-    </>
+            <QuestionList
+              restart={restartTimer}
+              question={question}
+              onClickVariant={onClickVariant}
+            />
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

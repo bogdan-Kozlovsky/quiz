@@ -2,7 +2,7 @@ import CssQuestion from 'pages/CssQuestion';
 import Home from 'pages/Home';
 import HtmlQuestion from 'pages/HtmlQuestion';
 import JavaScriptQuestion from 'pages/JavaScriptQuestion';
-import ReactQuestion from 'pages/React';
+import ReactQuestion from 'pages/ReactQuestion';
 import { PATHS } from 'types/routes.enum';
 
 const routes = [

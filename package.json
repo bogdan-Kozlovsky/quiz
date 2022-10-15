@@ -1,7 +1,8 @@
 {
-  "name": "movie",
+  "name": "quiz",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bogdan-kozlovsky.github.io/quiz/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +59,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8"

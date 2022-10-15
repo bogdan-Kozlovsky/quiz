@@ -7,17 +7,23 @@ type QuestionListPropsType = {
     correct: number;
   };
   onClickVariant: (index: number) => void;
+  restart: () => void;
 };
 
 const QuestionList = (props: QuestionListPropsType): ReactElement => {
-  const { question, onClickVariant } = props;
+  const { question, onClickVariant, restart } = props;
+
+  const restartTimer = (index: number): void => {
+    onClickVariant(index);
+    restart();
+  };
 
   return (
     <ul className="h-[200px] overflow-auto scrollCustom">
       {question.variants.map((variant, index) => (
         <li
           className="border-b-4 border-amber-100 cursor-pointer mb-[10px] rounded-sm"
-          onClick={() => onClickVariant(index)}
+          onClick={() => restartTimer(index)}
           role="presentation"
           key={`${variant}`}
         >
